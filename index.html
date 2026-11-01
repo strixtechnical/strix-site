@@ -418,6 +418,8 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
   border: 1px solid var(--rule); border-radius: 2px; padding: 11px 12px; width: 100%;
 }
 .field textarea { min-height: 120px; resize: vertical; }
+.field input[type="date"] { -webkit-appearance: none; appearance: none; display: block; min-width: 0; max-width: 100%; height: calc(1.6em + 24px); text-align: left; }
+.field input[type="date"]::-webkit-date-and-time-value { text-align: left; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 2px var(--rule); }
 .field .err { font-size: var(--step--1); color: var(--red-ink); }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
