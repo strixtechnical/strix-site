@@ -488,6 +488,12 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
 /* Oil and gas page */
 @media (min-width: 900px) { .flow.four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 #when .feature h3 { margin-top: 2px; }
+/* Look again / Look deeper band */
+.look-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 900px) { .look-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 64px; align-items: end; } }
+.look-grid > * { min-width: 0; }
+.look-head { font-family: var(--display); font-weight: 700; font-size: var(--step-4); line-height: 1.02; margin-top: 14px; }
+.look-grid p { font-size: var(--step-1); line-height: 1.6; color: var(--on-band-muted); max-width: 34em; }
 </style>
 </head>
 <body>
@@ -596,6 +602,20 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
       <p class="note">Not offered: air permitting, emissions work, PE stamps. We'll refer you.</p>
     </div>
   </section>
+
+  <div class="band look" id="look-deeper">
+    <section aria-labelledby="deepTitle">
+      <div class="wrap section">
+        <div class="look-grid">
+          <div>
+            <span class="label red">Spills don't stop at the surface</span>
+            <h2 id="deepTitle" class="look-head">Look deeper.</h2>
+          </div>
+          <p>We look past the stain: the soil, the lines, the records, and the cause. That way the fix holds, the right agency hears about it on time, and the same thing doesn't happen next month.</p>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <section id="when" aria-labelledby="whenTitle">
     <div class="wrap section">

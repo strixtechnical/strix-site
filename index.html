@@ -487,6 +487,12 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
   .checks li { padding: 8px 0; }
   .checklist dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 20px; }
 }
+/* Look again / Look deeper band */
+.look-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 900px) { .look-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 64px; align-items: end; } }
+.look-grid > * { min-width: 0; }
+.look-head { font-family: var(--display); font-weight: 700; font-size: var(--step-4); line-height: 1.02; margin-top: 14px; }
+.look-grid p { font-size: var(--step-1); line-height: 1.6; color: var(--on-band-muted); max-width: 34em; }
 </style>
 </head>
 <body>
@@ -712,6 +718,20 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
     </div>
   </section>
 
+  <div class="band look" id="look-again">
+    <section aria-labelledby="lookTitle">
+      <div class="wrap section">
+        <div class="look-grid">
+          <div>
+            <span class="label red">How we see a site</span>
+            <h2 id="lookTitle" class="look-head">Look again.</h2>
+          </div>
+          <p>Most sites already have a story: an old report, a seller's word, an aerial nobody studied. We look again. The records, the photos, and the ground itself, by the same person from the first call to the signed report.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <section class="why" aria-labelledby="whyTitle">
     <div class="wrap">
       <div class="why-head">
@@ -723,7 +743,7 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
           </div>
         </div>
         <div class="why-story">
-          <p><i>Strix varia</i> is the barred owl, a year round resident of Oklahoma's creek bottoms and timber. It watches from a high perch, listens carefully, and flies without a sound. That is how Strix works: a thorough look, a light touch on your day, and a site left better than we found it.</p>
+          <p><i>Strix varia</i> is the barred owl, a year round resident of Oklahoma's creek bottoms and timber. It sits on its perch, listens, looks again, and only then flies, without a sound. That is how Strix works: a thorough look, a light touch on your day, and a site left better than we found it.</p>
           <p>The owl is family, too. Mitch's grandfather carved owls with a chainsaw, and one of them stands in his house today. His mom loved owls, and so does his wife.</p>
         </div>
       </div>
