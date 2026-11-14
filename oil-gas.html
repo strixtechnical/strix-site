@@ -494,6 +494,19 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
 .look-grid > * { min-width: 0; }
 .look-head { font-family: var(--display); font-weight: 700; font-size: var(--step-4); line-height: 1.02; margin-top: 14px; }
 .look-grid p { font-size: var(--step-1); line-height: 1.6; color: var(--on-band-muted); max-width: 34em; }
+/* Phone call bar: one tap to call from a location */
+.callbar { display: none; }
+@media (max-width: 719px) {
+  .callbar {
+    display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+    border-top: 2px solid var(--red);
+  }
+  .callbar .btn { padding: 13px 12px; letter-spacing: 0.1em; }
+  .callbar .btn.primary { flex: 1; }
+  #why .values p { display: none; }
+  body { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px)); }
+}
 </style>
 </head>
 <body>
@@ -541,82 +554,6 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
   </section>
 </div>
 
-  <section id="why" aria-labelledby="uniqTitle">
-    <div class="wrap section">
-      <div class="section-head">
-        <span class="label red">Why Strix</span>
-        <h2 id="uniqTitle">Small on purpose.</h2>
-      </div>
-      <ul class="values three">
-        <li>
-          <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="21" r="5"/><circle cx="23" cy="21" r="5"/><path d="M4.5 19 L8 8 H13 L14 16 M27.5 19 L24 8 H19 L18 16 M14 16 H18"/></svg>
-          <h3>Start to finish</h3>
-          <span class="motto">The same person from first call to closeout.</span>
-          <p>You call, we talk through the problem together, and Strix does the work. No handoff to someone you've never met.</p>
-        </li>
-        <li>
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5 V27 M9 27 H23 M5 11 H27 M5 11 L2 19 H8 Z M27 11 L24 19 H30 Z"/></svg>
-          <h3>Right-sized</h3>
-          <span class="motto">Right-sized fixes for right-sized problems.</span>
-          <p>A problem well defined is half solved, so we define it first. Then the fix matches the problem, whether it's a quick answer or something we tackle together.</p>
-        </li>
-        <li>
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7 H27 V21 H14 L8 26 V21 H5 Z M10 12 H22 M10 16 H18"/></svg>
-          <h3>No surprises</h3>
-          <span class="motto">Routine updates and no surprises.</span>
-          <p>You'll hear from Strix before you have to ask for an update. We give it to you straight, even when it's not the news you wanted.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="wrap section">
-      <div class="section-head">
-        <span class="label red">Services</span>
-        <h2>Releases, locations changing hands, and EHS programs.</h2>
-        <p>Three kinds of work, done by the same person who answers the phone.</p>
-      </div>
-
-      <div class="tiles">
-        <article class="tile">
-          <div class="tile-top"><svg class="logo tile-glyph" viewBox="-3 -3 110 148" aria-hidden="true" focusable="false"><use href="#lg-feather"/></svg><span class="label">Environmental</span></div>
-          <h3>Releases and incidents</h3>
-          <p>Spill and release advice, what to report to OCC or DEQ and when, and cleanup oversight through closure. Root cause investigations with cause mapping and corrective actions that stick.</p>
-          <a class="tile-link" href="#request" data-service="Oil and gas: release or incident">Request this</a>
-        </article>
-        <article class="tile">
-          <div class="tile-top"><svg class="logo tile-glyph" viewBox="-3 -3 110 148" aria-hidden="true" focusable="false"><use href="#lg-feather"/></svg><span class="label">Due diligence</span></div>
-          <h3>Locations changing hands</h3>
-          <p>Due diligence before you buy a lease or location. Lease returns and site releases back to the landowner, including the small rural sites bigger firms are slow to reach.</p>
-          <a class="tile-link" href="#request" data-service="Oil and gas: location changing hands">Request this</a>
-        </article>
-        <article class="tile">
-          <div class="tile-top"><svg class="logo tile-glyph" viewBox="-3 -3 110 148" aria-hidden="true" focusable="false"><use href="#lg-feather"/></svg><span class="label">Safety and compliance</span></div>
-          <h3>EHS programs</h3>
-          <p>Gap reviews that find the holes before a regulator or carrier does, plus a plain read of what your permits require. Written programs that run the same at every site, from HazCom and spill response to DOT, hazmat shipping, and contractor site control. Job planning and toolbox talks built from what your crews see in the field.</p>
-          <a class="tile-link" href="#request" data-service="Oil and gas: EHS programs">Request this</a>
-        </article>
-      </div>
-      <p class="also-line">Lending on or buying a property with oil field history? <a class="tile-link" href="/#services">See Phase I ESAs</a></p>
-      <p class="note">Not offered: air permitting, emissions work, PE stamps. We'll refer you.</p>
-    </div>
-  </section>
-
-  <div class="band look" id="look-deeper">
-    <section aria-labelledby="deepTitle">
-      <div class="wrap section">
-        <div class="look-grid">
-          <div>
-            <span class="label red">Spills don't stop at the surface</span>
-            <h2 id="deepTitle" class="look-head">Look deeper.</h2>
-          </div>
-          <p>We look past the stain: the soil, the lines, the records, and the cause. That way the fix holds, the right agency hears about it on time, and the same thing doesn't happen next month.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
   <section id="when" aria-labelledby="whenTitle">
     <div class="wrap section">
       <div class="feature">
@@ -652,30 +589,50 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
     </div>
   </section>
 
-  <section id="how" aria-labelledby="howTitle">
+  <div class="band look" id="look-deeper">
+    <section aria-labelledby="deepTitle">
+      <div class="wrap section">
+        <div class="look-grid">
+          <div>
+            <span class="label red">Spills don't stop at the surface</span>
+            <h2 id="deepTitle" class="look-head">Look deeper.</h2>
+          </div>
+          <p>We look past the stain: the soil, the lines, the records, and the cause. That way the fix holds, the right agency hears about it on time, and the same thing doesn't happen next month.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="services">
     <div class="wrap section">
       <div class="section-head">
-        <span class="label red">How it works</span>
-        <h2 id="howTitle">Define the problem first. Then fix it.</h2>
+        <span class="label red">Services</span>
+        <h2>Releases, locations changing hands, and EHS programs.</h2>
+        <p>Three kinds of work, done by the same person who answers the phone.</p>
       </div>
-      <ol class="flow four">
-        <li>
-          <h3>You call or send a request</h3>
-          <p>Call 918-303-2491 or use the form below.</p>
-        </li>
-        <li>
-          <h3>We call you back and talk it through</h3>
-          <p>Within four hours. We learn what you need and when you need it.</p>
-        </li>
-        <li>
-          <h3>We agree on scope and cost</h3>
-          <p>In writing, before work starts.</p>
-        </li>
-        <li>
-          <h3>You get a straight answer and a plan</h3>
-          <p>A plan you can act on, with routine updates until it's closed out.</p>
-        </li>
-      </ol>
+
+      <div class="tiles">
+        <article class="tile">
+          <div class="tile-top"><svg class="logo tile-glyph" viewBox="-3 -3 110 148" aria-hidden="true" focusable="false"><use href="#lg-feather"/></svg><span class="label">Environmental</span></div>
+          <h3>Releases and incidents</h3>
+          <p>Spill and release advice, what to report to OCC or DEQ and when, and cleanup oversight through closure. Root cause investigations with cause mapping and corrective actions that stick.</p>
+          <a class="tile-link" href="#request" data-service="Oil and gas: release or incident">Request this</a>
+        </article>
+        <article class="tile">
+          <div class="tile-top"><svg class="logo tile-glyph" viewBox="-3 -3 110 148" aria-hidden="true" focusable="false"><use href="#lg-feather"/></svg><span class="label">Due diligence</span></div>
+          <h3>Locations changing hands</h3>
+          <p>Due diligence before you buy a lease or location. Lease returns and site releases back to the landowner, including the small rural sites bigger firms are slow to reach.</p>
+          <a class="tile-link" href="#request" data-service="Oil and gas: location changing hands">Request this</a>
+        </article>
+        <article class="tile">
+          <div class="tile-top"><svg class="logo tile-glyph" viewBox="-3 -3 110 148" aria-hidden="true" focusable="false"><use href="#lg-feather"/></svg><span class="label">Safety and compliance</span></div>
+          <h3>EHS programs</h3>
+          <p>Gap reviews that find the holes before a regulator or carrier does, plus a plain read of what your permits require. Written programs that run the same at every site, from HazCom and spill response to DOT, hazmat shipping, and contractor site control. Job planning and toolbox talks built from what your crews see in the field.</p>
+          <a class="tile-link" href="#request" data-service="Oil and gas: EHS programs">Request this</a>
+        </article>
+      </div>
+      <p class="also-line">Lending on or buying a property with oil field history? <a class="tile-link" href="/#services">See Phase I ESAs</a></p>
+      <p class="note">Not offered: air permitting, emissions work, PE stamps. We'll refer you.</p>
     </div>
   </section>
 
@@ -719,6 +676,35 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
       </div>
     </section>
   </div>
+
+  <section id="why" aria-labelledby="uniqTitle">
+    <div class="wrap section">
+      <div class="section-head">
+        <span class="label red">Why Strix</span>
+        <h2 id="uniqTitle">Small on purpose.</h2>
+      </div>
+      <ul class="values three">
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="21" r="5"/><circle cx="23" cy="21" r="5"/><path d="M4.5 19 L8 8 H13 L14 16 M27.5 19 L24 8 H19 L18 16 M14 16 H18"/></svg>
+          <h3>Start to finish</h3>
+          <span class="motto">The same person from first call to closeout.</span>
+          <p>You call, we talk through the problem together, and Strix does the work. No handoff to someone you've never met.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5 V27 M9 27 H23 M5 11 H27 M5 11 L2 19 H8 Z M27 11 L24 19 H30 Z"/></svg>
+          <h3>Right-sized</h3>
+          <span class="motto">Right-sized fixes for right-sized problems.</span>
+          <p>A problem well defined is half solved, so we define it first. Then the fix matches the problem, whether it's a quick answer or something we tackle together.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7 H27 V21 H14 L8 26 V21 H5 Z M10 12 H22 M10 16 H18"/></svg>
+          <h3>No surprises</h3>
+          <span class="motto">Routine updates and no surprises.</span>
+          <p>You'll hear from Strix before you have to ask for an update. We give it to you straight, even when it's not the news you wanted.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <section aria-labelledby="guarTitle">
     <div class="wrap section">
@@ -816,6 +802,9 @@ form { position: relative; display: grid; grid-template-columns: 1fr; gap: 18px;
     </div>
   </section>
 </main>
+<div class="callbar dark-zone" aria-label="Call Strix">
+  <a class="btn primary" href="tel:+19183032491">Call 918-303-2491</a>
+</div>
 
 
 <footer class="site-foot">
